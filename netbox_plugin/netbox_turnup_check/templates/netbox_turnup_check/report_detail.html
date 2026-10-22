@@ -1,0 +1,38 @@
+{# SPDX-License-Identifier: Apache-2.0 #}
+{% extends 'base/layout.html' %}
+{% block title %}Turnup check: {{ name }}{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col col-md-12">
+    <div class="card">
+      <h5 class="card-header">{{ report.site }} <small class="text-muted">{{ report.generated_at }} &middot; {{ report.elapsed_s }} s</small></h5>
+      <div class="card-body">
+        <p>
+          {{ report.summary.links_ok }} / {{ report.summary.links_total }} links match intent &middot;
+          {{ report.summary.nodes_reachable }} / {{ report.summary.nodes_total }} nodes reachable &middot;
+          firmware {% if report.summary.firmware_ok %}baseline ok{% else %}off baseline{% endif %} &middot;
+          GPUs {{ report.summary.gpus_seen }} / {{ report.summary.gpus_expected }}
+        </p>
+        {% if findings %}
+        <table class="table table-hover">
+          <thead><tr><th>Id</th><th>Class</th><th>Severity</th><th>Cable</th><th>Device</th><th>Interface</th><th>Expected</th><th>Observed</th><th>Fix</th></tr></thead>
+          <tbody>
+          {% for f in findings %}
+            <tr>
+              <td>{{ f.id }}</td><td><code>{{ f.class }}</code></td><td>{{ f.severity }}</td>
+              <td>{{ f.cable|default_if_none:"" }}</td><td>{{ f.device|default_if_none:"" }}</td>
+              <td>{{ f.interface|default_if_none:"" }}</td><td>{{ f.expected|default_if_none:"" }}</td>
+              <td>{{ f.observed|default_if_none:"" }}</td><td>{{ f.fix|default_if_none:"" }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p class="text-success">No findings.</p>
+        {% endif %}
+        <details><summary>Raw report JSON</summary><pre>{{ raw }}</pre></details>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

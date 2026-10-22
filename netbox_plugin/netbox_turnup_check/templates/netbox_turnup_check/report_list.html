@@ -1,0 +1,40 @@
+{# SPDX-License-Identifier: Apache-2.0 #}
+{% extends 'base/layout.html' %}
+{% block title %}Turnup check{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col col-md-12">
+    <div class="card">
+      <h5 class="card-header">turnup-check reports</h5>
+      <div class="card-body">
+        <p class="text-muted">Reports read from <code>{{ report_dir }}</code>. Write them there with
+          <code>turnup-check --site &lt;site&gt; --intent netbox --out {{ report_dir }}/&lt;site&gt;-&lt;date&gt;.json</code>.</p>
+        {% if reports %}
+        <table class="table table-hover">
+          <thead>
+            <tr><th>Report</th><th>Site</th><th>Generated</th><th>Links</th><th>Nodes</th><th>Firmware</th><th>Findings</th><th>Elapsed</th></tr>
+          </thead>
+          <tbody>
+          {% for r in reports %}
+            <tr>
+              <td><a href="{% url 'plugins:netbox_turnup_check:report_detail' name=r.name %}">{{ r.name }}</a>
+                {% if r.simulated %}<span class="badge text-bg-secondary">simulated</span>{% endif %}</td>
+              <td>{{ r.site }}</td>
+              <td>{{ r.generated_at }}</td>
+              <td>{{ r.links_ok }} / {{ r.links_total }}</td>
+              <td>{{ r.nodes_reachable }} / {{ r.nodes_total }}</td>
+              <td>{% if r.firmware_ok %}baseline ok{% else %}<span class="text-danger">off baseline</span>{% endif %}</td>
+              <td>{% if r.findings %}<span class="badge text-bg-danger">{{ r.findings }}</span>{% else %}<span class="badge text-bg-success">0</span>{% endif %}</td>
+              <td>{{ r.elapsed_s }} s</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>No reports yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

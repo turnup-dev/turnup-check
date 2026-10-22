@@ -1,0 +1,68 @@
+# SPDX-License-Identifier: Apache-2.0
+# Publish to PyPI on a version tag, through PyPI trusted publishing (no API token).
+# Before the first tag, configure the trusted publisher on pypi.org: owner turnup-dev, repository turnup-check,
+# workflow release.yml, environment pypi (README.md, "Releasing").
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build sdist and wheel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Tag matches the package version
+        shell: python
+        run: |
+          import os, re, sys, tomllib
+
+          version = tomllib.load(open("pyproject.toml", "rb"))["project"]["version"]
+          init = open("src/turnup_check/__init__.py", encoding="utf-8").read()
+          m = re.search(r'^__version__ = "([^"]+)"', init, re.M)
+          tag = os.environ["GITHUB_REF_NAME"]
+          problems = []
+          if tag != f"v{version}":
+              problems.append(f"tag {tag} does not match version {version} in pyproject.toml")
+          if not m or m.group(1) != version:
+              problems.append(f"src/turnup_check/__init__.py __version__ is not {version}")
+          for p in problems:
+              print(f"::error::{p}")
+          sys.exit(1 if problems else 0)
+      - name: Build
+        run: |
+          python -m pip install --upgrade pip build twine
+          python -m build
+          python -m twine check --strict dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/turnup-check/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # A version already uploaded by hand (twine) makes its tag a no-op instead of a failure.
+          skip-existing: true

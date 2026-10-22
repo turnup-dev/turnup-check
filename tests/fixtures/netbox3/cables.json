@@ -1,0 +1,29 @@
+{
+ "count": 1,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 1,
+   "label": "CBL-12-07-03",
+   "termination_a_type": "dcim.interface",
+   "termination_a": {
+    "id": 1,
+    "name": "mlx5_3",
+    "device": {
+     "id": 1,
+     "name": "node7"
+    }
+   },
+   "termination_b_type": "dcim.interface",
+   "termination_b": {
+    "id": 2,
+    "name": "Ethernet21/1",
+    "device": {
+     "id": 4,
+     "name": "leaf4"
+    }
+   }
+  }
+ ]
+}

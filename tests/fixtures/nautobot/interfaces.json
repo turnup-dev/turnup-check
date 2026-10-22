@@ -1,0 +1,31 @@
+{
+ "count": 2,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": "i-1",
+   "device": {
+    "id": "d-1",
+    "name": "node7"
+   },
+   "name": "mlx5_3",
+   "type": {
+    "value": "400gbase-x-osfp"
+   },
+   "mac_address": "b8:3f:d2:00:07:03"
+  },
+  {
+   "id": "i-2",
+   "device": {
+    "id": "d-4",
+    "name": "leaf4"
+   },
+   "name": "swp21",
+   "type": {
+    "value": "400gbase-x-osfp"
+   },
+   "mac_address": null
+  }
+ ]
+}

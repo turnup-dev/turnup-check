@@ -1,0 +1,959 @@
+{
+ "count": 72,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 101,
+   "device": {
+    "id": 1,
+    "name": "node7"
+   },
+   "name": "mlx5_0",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": "B8:3F:D2:00:07:00"
+  },
+  {
+   "id": 102,
+   "device": {
+    "id": 1,
+    "name": "node7"
+   },
+   "name": "mlx5_1",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": "B8:3F:D2:00:07:01"
+  },
+  {
+   "id": 103,
+   "device": {
+    "id": 1,
+    "name": "node7"
+   },
+   "name": "mlx5_2",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": "B8:3F:D2:00:07:02"
+  },
+  {
+   "id": 104,
+   "device": {
+    "id": 1,
+    "name": "node7"
+   },
+   "name": "mlx5_3",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": "B8:3F:D2:00:07:03"
+  },
+  {
+   "id": 105,
+   "device": {
+    "id": 2,
+    "name": "node8"
+   },
+   "name": "mlx5_0",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null,
+   "primary_mac_address": {
+    "id": 105,
+    "mac_address": "B8:3F:D2:00:08:00"
+   }
+  },
+  {
+   "id": 106,
+   "device": {
+    "id": 2,
+    "name": "node8"
+   },
+   "name": "mlx5_1",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null,
+   "primary_mac_address": {
+    "id": 106,
+    "mac_address": "B8:3F:D2:00:08:01"
+   }
+  },
+  {
+   "id": 107,
+   "device": {
+    "id": 2,
+    "name": "node8"
+   },
+   "name": "mlx5_2",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null,
+   "primary_mac_address": {
+    "id": 107,
+    "mac_address": "B8:3F:D2:00:08:02"
+   }
+  },
+  {
+   "id": 108,
+   "device": {
+    "id": 2,
+    "name": "node8"
+   },
+   "name": "mlx5_3",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null,
+   "primary_mac_address": {
+    "id": 108,
+    "mac_address": "B8:3F:D2:00:08:03"
+   }
+  },
+  {
+   "id": 109,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp1",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 110,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp2",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 111,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp3",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 112,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp4",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 113,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp5",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 114,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp6",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 115,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp7",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 116,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp8",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 117,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp9",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 118,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp10",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 119,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp11",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 120,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp12",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 121,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp13",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 122,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp14",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 123,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp15",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 124,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp16",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 125,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp17",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 126,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp18",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 127,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp19",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 128,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp20",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 129,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp21",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 130,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp22",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 131,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp23",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 132,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp24",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 133,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp25",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 134,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp26",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 135,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp27",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 136,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp28",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 137,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp29",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 138,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp30",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 139,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp31",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 140,
+   "device": {
+    "id": 3,
+    "name": "leaf3"
+   },
+   "name": "swp32",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 141,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp1",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 142,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp2",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 143,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp3",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 144,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp4",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 145,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp5",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 146,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp6",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 147,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp7",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 148,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp8",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 149,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp9",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 150,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp10",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 151,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp11",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 152,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp12",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 153,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp13",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 154,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp14",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 155,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp15",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 156,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp16",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 157,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp17",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 158,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp18",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 159,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp19",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 160,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp20",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 161,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp21",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 162,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp22",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 163,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp23",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 164,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp24",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 165,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp25",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 166,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp26",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 167,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp27",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 168,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp28",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 169,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp29",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 170,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp30",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 171,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp31",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  },
+  {
+   "id": 172,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "swp32",
+   "type": {
+    "value": "400gbase-x-osfp",
+    "label": "OSFP (400GE)"
+   },
+   "mac_address": null
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "eth0": {
+  "type": "eth",
+  "link": {
+   "state": {
+    "up": {}
+   },
+   "speed": "1G"
+  }
+ },
+ "lo": {
+  "type": "loopback"
+ },
+ "swp21": {
+  "type": "swp",
+  "link": {
+   "state": {
+    "up": {}
+   },
+   "speed": "400G"
+  },
+  "lldp": {
+   "neighbor": {
+    "node7": {
+     "chassis": {
+      "chassis-id": "b8:3f:d2:00:07:00",
+      "system-name": "node7"
+     },
+     "port": {
+      "id": "mlx5_3",
+      "id-type": "if_name"
+     }
+    }
+   }
+  }
+ },
+ "swp22": {
+  "type": "swp",
+  "link": {
+   "state": {
+    "down": {}
+   },
+   "speed": "auto"
+  }
+ },
+ "swp23": {
+  "type": "swp",
+  "link": {
+   "state": {
+    "up": {}
+   },
+   "speed": "200G"
+  },
+  "lldp": {
+   "neighbor": {
+    "node8": {
+     "chassis": {
+      "chassis-id": "b8:3f:d2:00:08:00",
+      "system-name": "node8"
+     },
+     "port": {
+      "id": "b8:3f:d2:00:08:01",
+      "id-type": "mac"
+     }
+    }
+   }
+  }
+ },
+ "swp24": {
+  "type": "swp",
+  "link": {
+   "state": {
+    "up": {}
+   },
+   "speed": "400G"
+  }
+ },
+ "swp25": {
+  "type": "swp",
+  "link": {
+   "state": {
+    "down": {}
+   }
+  }
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "count": 2,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 1,
+   "url": "http://netbox.example.test/api/dcim/devices/1/",
+   "name": "node7",
+   "device_type": {
+    "id": 1,
+    "model": "GB300 NVL72 compute tray",
+    "manufacturer": {
+     "id": 1,
+     "name": "NVIDIA",
+     "slug": "nvidia"
+    }
+   },
+   "serial": "SN-NODE7",
+   "site": {
+    "id": 1,
+    "name": "Hall B",
+    "slug": "hall-b"
+   },
+   "rack": {
+    "id": 12,
+    "name": "12",
+    "display": "12"
+   },
+   "position": 14.0,
+   "primary_ip4": {
+    "id": 1,
+    "address": "10.0.0.7/24",
+    "family": {
+     "value": 4
+    }
+   },
+   "custom_fields": {},
+   "config_context": {
+    "turnup": {
+     "firmware_baseline": {
+      "bmc": "1.12.0",
+      "bios": "2.3.1",
+      "nic": "28.43.1014"
+     }
+    }
+   },
+   "device_role": {
+    "id": 2,
+    "name": "Gpu Node",
+    "slug": "gpu-node"
+   }
+  },
+  {
+   "id": 4,
+   "url": "http://netbox.example.test/api/dcim/devices/4/",
+   "name": "leaf4",
+   "device_type": {
+    "id": 1,
+    "model": "DCS-7060DX5-64S",
+    "manufacturer": {
+     "id": 1,
+     "name": "Arista",
+     "slug": "arista"
+    }
+   },
+   "serial": "SN-LEAF4",
+   "site": {
+    "id": 1,
+    "name": "Hall B",
+    "slug": "hall-b"
+   },
+   "rack": {
+    "id": 12,
+    "name": "12",
+    "display": "12"
+   },
+   "position": 40.0,
+   "primary_ip4": {
+    "id": 4,
+    "address": "10.0.1.4/24",
+    "family": {
+     "value": 4
+    }
+   },
+   "custom_fields": {},
+   "config_context": {},
+   "device_role": {
+    "id": 2,
+    "name": "Leaf Switch",
+    "slug": "leaf-switch"
+   }
+  }
+ ]
+}

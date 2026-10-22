@@ -1,0 +1,172 @@
+{
+ "schema": "turnup.report/v1",
+ "tool": "turnup-check",
+ "tool_version": "0.1.0",
+ "site": "ncsu-065",
+ "simulated": false,
+ "generated_at": "2026-10-16T20:40:04Z",
+ "elapsed_s": 0.003,
+ "intent": {
+  "links": 0,
+  "nodes": 0,
+  "leaves": 8,
+  "racks": 26,
+  "source": "netbox"
+ },
+ "summary": {
+  "links_ok": 0,
+  "links_total": 0,
+  "nodes_reachable": 0,
+  "nodes_total": 0,
+  "firmware_ok": true,
+  "gpus_expected": 0,
+  "gpus_seen": 0,
+  "findings": 8
+ },
+ "findings": [
+  {
+   "id": "f-0001",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-98",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-98",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0002",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-99",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-99",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0003",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-100",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-100",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0004",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-101",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-101",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0005",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-102",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-102",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0006",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-103",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-103",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0007",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-104",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-104",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  },
+  {
+   "id": "f-0008",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "device-105",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for device-105",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  }
+ ],
+ "sources": [
+  {
+   "kind": "lldp",
+   "protocol": "snmp",
+   "devices": 8
+  }
+ ],
+ "notes": []
+}

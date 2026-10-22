@@ -1,0 +1,89 @@
+# SPDX-License-Identifier: Apache-2.0
+# Synthetic two-node hall used by the unit and CLI tests. node7 mlx5_3 -> leaf4/swp21 is the README's link;
+# leaf4/swp22 is a spare.
+schema: turnup.intent/v1
+site: hall-mini
+simulated: true
+generated_at: 2026-10-16T18:00:00Z
+racks:
+  - name: "12"
+devices:
+  - name: node7
+    role: gpu-node
+    rack: "12"
+    position: 14
+    manufacturer: NVIDIA
+    model: GB300 NVL72 compute tray
+    serial: "SN-N7-000123"
+    gpu_count: 4
+    mgmt:
+      bmc_url: "http://127.0.0.1:8900/dev/node7"
+      dcgm_url: "http://127.0.0.1:8900/dev/node7"
+    interfaces:
+      - {name: mlx5_0, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:07:00"}
+      - {name: mlx5_1, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:07:01"}
+      - {name: mlx5_2, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:07:02"}
+      - {name: mlx5_3, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:07:03"}
+  - name: node8
+    role: gpu-node
+    rack: "12"
+    position: 16
+    manufacturer: NVIDIA
+    model: GB300 NVL72 compute tray
+    serial: "SN-N8-000124"
+    mgmt:
+      bmc_url: "http://127.0.0.1:8900/dev/node8"
+      dcgm_url: "http://127.0.0.1:8900/dev/node8"
+    interfaces:
+      - {name: mlx5_0, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:08:00"}
+      - {name: mlx5_1, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:08:01"}
+      - {name: mlx5_2, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:08:02"}
+      - {name: mlx5_3, type: 400gbase-x-osfp, mac: "b8:3f:d2:00:08:03"}
+  - name: leaf3
+    role: leaf-switch
+    rack: "12"
+    manufacturer: NVIDIA
+    model: SN5600
+    mgmt:
+      switch_url: "http://127.0.0.1:8900/dev/leaf3"
+      protocol: nvue
+    interfaces:
+      - {name: swp1, type: 400gbase-x-osfp}
+      - {name: swp2, type: 400gbase-x-osfp}
+      - {name: swp3, type: 400gbase-x-osfp}
+      - {name: swp4, type: 400gbase-x-osfp}
+      - {name: swp5, type: 400gbase-x-osfp}
+      - {name: swp6, type: 400gbase-x-osfp}
+  - name: leaf4
+    role: leaf-switch
+    rack: "12"
+    manufacturer: NVIDIA
+    model: SN5600
+    mgmt:
+      switch_url: "http://127.0.0.1:8900/dev/leaf4"
+    interfaces:
+      - {name: swp1, type: 400gbase-x-osfp}
+      - {name: swp3, type: 400gbase-x-osfp}
+      - {name: swp4, type: 400gbase-x-osfp}
+      - {name: swp17, type: 400gbase-x-osfp}
+      - {name: swp18, type: 400gbase-x-osfp}
+      - {name: swp19, type: 400gbase-x-osfp}
+      - {name: swp20, type: 400gbase-x-osfp}
+      - {name: swp21, type: 400gbase-x-osfp}
+      - {name: swp22, type: 400gbase-x-osfp}
+      - {name: swp23, type: 400gbase-x-osfp}
+      - {name: swp24, type: 400gbase-x-osfp}
+      - {name: swp25, type: 400gbase-x-osfp}
+      - {name: swp26, type: 400gbase-x-osfp}
+      - {name: swp30, type: 400gbase-x-osfp}
+cables:
+  - {label: CBL-12-07-00, a: {device: node7, interface: mlx5_0}, b: {device: leaf3, interface: swp1}, speed_gbps: 400}
+  - {label: CBL-12-07-01, a: {device: node7, interface: mlx5_1}, b: {device: leaf4, interface: swp1}, speed_gbps: 400}
+  - {label: CBL-12-07-02, a: {device: node7, interface: mlx5_2}, b: {device: leaf3, interface: swp2}, speed_gbps: 400}
+  - {label: CBL-12-07-03, a: {device: node7, interface: mlx5_3}, b: {device: leaf4, interface: swp21}, speed_gbps: 400}
+  - {label: CBL-12-08-00, a: {device: node8, interface: mlx5_0}, b: {device: leaf3, interface: swp3}, speed_gbps: 400}
+  - {label: CBL-12-08-01, a: {device: node8, interface: mlx5_1}, b: {device: leaf4, interface: swp3}, speed_gbps: 400}
+  - {label: CBL-12-08-02, a: {device: node8, interface: mlx5_2}, b: {device: leaf3, interface: swp4}, speed_gbps: 400}
+  - {label: CBL-12-08-03, a: {device: node8, interface: mlx5_3}, b: {device: leaf4, interface: swp4}, speed_gbps: 400}
+firmware_baseline:
+  "GB300 NVL72 compute tray": {bmc: "1.12.0", bios: "2.3.1", nic: "28.43.1014"}

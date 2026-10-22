@@ -1,0 +1,16 @@
+{
+ "_source": "DMTF Redfish-Publications tag 2026.2 (DSP2043 2026.2), commit 4f81814e399213c9055863ddaff42791c6b3706a, mockups/public-pdu; BSD-3-Clause, see LICENSE",
+ "/redfish/v1/": {
+  "Id": "RootService",
+  "Name": "Root Service",
+  "RedfishVersion": "1.15.0",
+  "Chassis": {
+   "@odata.id": "/redfish/v1/Chassis"
+  },
+  "Managers": {
+   "@odata.id": "/redfish/v1/Managers"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/"
+ }
+}

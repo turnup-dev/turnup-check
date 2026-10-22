@@ -1,0 +1,321 @@
+{
+ "count": 9,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 1,
+   "label": "CBL-12-07-00",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp1",
+      "device": {
+       "id": 3,
+       "name": "leaf3"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_0",
+      "device": {
+       "id": 1,
+       "name": "node7"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "label": "CBL-12-07-01",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_1",
+      "device": {
+       "id": 1,
+       "name": "node7"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp1",
+      "device": {
+       "id": 4,
+       "name": "leaf4"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "label": "CBL-12-07-02",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp2",
+      "device": {
+       "id": 3,
+       "name": "leaf3"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_2",
+      "device": {
+       "id": 1,
+       "name": "node7"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "label": "CBL-12-07-03",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_3",
+      "device": {
+       "id": 1,
+       "name": "node7"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp21",
+      "device": {
+       "id": 4,
+       "name": "leaf4"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "label": "CBL-12-08-00",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp3",
+      "device": {
+       "id": 3,
+       "name": "leaf3"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_0",
+      "device": {
+       "id": 2,
+       "name": "node8"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "label": "CBL-12-08-01",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_1",
+      "device": {
+       "id": 2,
+       "name": "node8"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp3",
+      "device": {
+       "id": 4,
+       "name": "leaf4"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "label": "CBL-12-08-02",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp4",
+      "device": {
+       "id": 3,
+       "name": "leaf3"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_2",
+      "device": {
+       "id": 2,
+       "name": "node8"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "label": "CBL-12-08-03",
+   "type": "aoc",
+   "status": {
+    "value": "connected"
+   },
+   "a_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "mlx5_3",
+      "device": {
+       "id": 2,
+       "name": "node8"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.interface",
+     "object_id": 0,
+     "object": {
+      "id": 0,
+      "name": "swp4",
+      "device": {
+       "id": 4,
+       "name": "leaf4"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": 99,
+   "label": "PWR-1",
+   "a_terminations": [
+    {
+     "object_type": "dcim.powerport",
+     "object": {
+      "name": "PSU1",
+      "device": {
+       "name": "node7"
+      }
+     }
+    }
+   ],
+   "b_terminations": [
+    {
+     "object_type": "dcim.poweroutlet",
+     "object": {
+      "name": "1",
+      "device": {
+       "name": "pdu1"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "count": 2,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 1,
+   "device": {
+    "id": 1,
+    "name": "node7"
+   },
+   "name": "mlx5_3",
+   "type": {
+    "value": "400gbase-x-osfp"
+   },
+   "mac_address": "b8:3f:d2:00:07:03"
+  },
+  {
+   "id": 2,
+   "device": {
+    "id": 4,
+    "name": "leaf4"
+   },
+   "name": "Ethernet21/1",
+   "type": {
+    "value": "400gbase-x-osfp"
+   },
+   "mac_address": null
+  }
+ ]
+}

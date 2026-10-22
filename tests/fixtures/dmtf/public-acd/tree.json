@@ -1,0 +1,301 @@
+{
+ "_source": "DMTF Redfish-Publications tag 2026.2 (DSP2043 2026.2), commit 4f81814e399213c9055863ddaff42791c6b3706a, mockups/public-acd; BSD-3-Clause, see LICENSE",
+ "/redfish/v1/": {
+  "Id": "RootService",
+  "Name": "Root Service",
+  "RedfishVersion": "1.15.0",
+  "Systems": {
+   "@odata.id": "/redfish/v1/Systems"
+  },
+  "Chassis": {
+   "@odata.id": "/redfish/v1/Chassis"
+  },
+  "Managers": {
+   "@odata.id": "/redfish/v1/Managers"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/"
+ },
+ "/redfish/v1/Chassis": {
+  "Name": "Chassis Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis"
+ },
+ "/redfish/v1/Systems": {
+  "Name": "Computer System Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Systems/437XR1138R2"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Systems"
+ },
+ "/redfish/v1/Managers/BMC": {
+  "Id": "BMC",
+  "Name": "Manager",
+  "ManagerType": "BMC",
+  "Model": "Joo Janta 200",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "PowerState": "On",
+  "FirmwareVersion": "1.45.455b66-rev4",
+  "EthernetInterfaces": {
+   "@odata.id": "/redfish/v1/Managers/BMC/EthernetInterfaces"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/Managers/BMC"
+ },
+ "/redfish/v1/Systems/437XR1138R2": {
+  "Id": "437XR1138R2",
+  "Name": "WebFrontEnd483",
+  "SystemType": "Physical",
+  "Manufacturer": "Contoso",
+  "Model": "3500",
+  "SerialNumber": "437XR1138R2",
+  "HostName": "web483",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK",
+   "HealthRollup": "OK"
+  },
+  "PowerState": "On",
+  "BiosVersion": "P79 v1.45 (12/06/2017)",
+  "ProcessorSummary": {
+   "Count": 2
+  },
+  "EthernetInterfaces": {
+   "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces"
+  },
+  "NetworkInterfaces": {
+   "@odata.id": "/redfish/v1/Systems/437XR1138R2/NetworkInterfaces"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2"
+ },
+ "/redfish/v1/Chassis/1U": {
+  "Id": "1U",
+  "Name": "Computer System Chassis",
+  "Manufacturer": "Contoso",
+  "Model": "3500RX",
+  "SerialNumber": "437XR1138R2",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "NetworkAdapters": {
+   "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/1U"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters": {
+  "Name": "Network Adapter Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot2"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1": {
+  "Id": "Slot1",
+  "Manufacturer": "Contoso Systems Inc.",
+  "Model": "Contoso SuperC 2000 25Gb 2p Adapter",
+  "Name": "NetworkAdapter",
+  "Ports": {
+   "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports"
+  },
+  "SerialNumber": "CSC125J87D",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot2": {
+  "Id": "Slot2",
+  "Manufacturer": "Contoso",
+  "Model": "Contoso SC32G-FC HBA",
+  "Name": "Contoso SC32G-FC HBA",
+  "Ports": {
+   "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports"
+  },
+  "SerialNumber": "ABCD12345",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot2"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3": {
+  "Id": "Slot3",
+  "Manufacturer": "Contoso",
+  "Model": "Contoso PS100 NIC",
+  "Name": "Contoso PS100 NIC",
+  "Ports": {
+   "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports"
+  },
+  "SerialNumber": "ABCDE2345",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4": {
+  "Id": "Slot4",
+  "Manufacturer": "Contoso Systems Inc.",
+  "Model": "Contoso PS200 NIC",
+  "Name": "NetworkAdapter",
+  "Ports": {
+   "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports"
+  },
+  "SerialNumber": "CSC125J87D1234",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports": {
+  "Name": "Port Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/AG_P1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P2"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P3"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P4"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P1": {
+  "CurrentSpeedGbps": 25,
+  "Id": "PHY_P1",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Support",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P1"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/AG_P1": {
+  "CurrentSpeedGbps": 100,
+  "Id": "AG_P1",
+  "Ethernet": {},
+  "Name": "100Gbps Ethernet Support",
+  "LinkStatus": "LinkUp",
+  "Links": {},
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/AG_P1"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P4": {
+  "CurrentSpeedGbps": 25,
+  "Id": "PHY_P4",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Support",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P4"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P2": {
+  "CurrentSpeedGbps": 25,
+  "Id": "PHY_P2",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Support",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P2"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P3": {
+  "CurrentSpeedGbps": 25,
+  "Id": "PHY_P3",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Support",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot4/Ports/PHY_P3"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports": {
+  "Name": "Port Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P2"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P3"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P4"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P2": {
+  "CurrentSpeedGbps": 25,
+  "Id": "CSP_P2",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Subport",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P2"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P4": {
+  "CurrentSpeedGbps": 25,
+  "Id": "CSP_P4",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Subport",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P4"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P1": {
+  "CurrentSpeedGbps": 25,
+  "Id": "CSP_P1",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Subport",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P1"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P3": {
+  "CurrentSpeedGbps": 25,
+  "Id": "CSP_P3",
+  "Ethernet": {},
+  "Name": "25Gbps Ethernet Subport",
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot3/Ports/CSP_P3"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports": {
+  "Name": "Port Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports/SC2KP2"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports"
+ },
+ "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports/SC2KP2": {
+  "Id": "SC2KP2",
+  "Name": "Port 2",
+  "CurrentSpeedGbps": 25,
+  "Ethernet": {},
+  "LinkStatus": "LinkUp",
+  "@odata.id": "/redfish/v1/Chassis/1U/NetworkAdapters/Slot1/Ports/SC2KP2"
+ }
+}

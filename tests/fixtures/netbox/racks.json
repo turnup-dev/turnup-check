@@ -1,0 +1,14 @@
+{
+ "count": 1,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 12,
+   "name": "12",
+   "site": {
+    "slug": "hall-b"
+   }
+  }
+ ]
+}

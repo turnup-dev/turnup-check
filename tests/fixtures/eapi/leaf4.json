@@ -1,0 +1,62 @@
+{
+ "jsonrpc": "2.0",
+ "id": "turnup",
+ "result": [
+  {
+   "lldpNeighbors": {
+    "Ethernet21": {
+     "lldpNeighborInfo": [
+      {
+       "chassisId": "b8:3f:d2:00:07:00",
+       "chassisIdType": "macAddress",
+       "systemName": "node7",
+       "neighborInterfaceInfo": {
+        "interfaceIdType": "interfaceName",
+        "interfaceId": "mlx5_3",
+        "interfaceDescription": "mlx5_3"
+       }
+      }
+     ]
+    },
+    "Ethernet23": {
+     "lldpNeighborInfo": [
+      {
+       "chassisId": "b8:3f:d2:00:08:00",
+       "chassisIdType": "macAddress",
+       "systemName": "node8",
+       "neighborInterfaceInfo": {
+        "interfaceIdType": "macAddress",
+        "interfaceId": "b8:3f:d2:00:08:01",
+        "interfaceDescription": ""
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "interfaceStatuses": {
+    "Ethernet21": {
+     "linkStatus": "connected",
+     "bandwidth": 400000000000
+    },
+    "Ethernet22": {
+     "linkStatus": "notconnect",
+     "bandwidth": 0
+    },
+    "Ethernet23": {
+     "linkStatus": "connected",
+     "bandwidth": 200000000000
+    },
+    "Ethernet24": {
+     "linkStatus": "connected",
+     "bandwidth": 400000000000
+    },
+    "Ethernet25": {
+     "linkStatus": "disabled",
+     "bandwidth": 0
+    }
+   }
+  }
+ ]
+}

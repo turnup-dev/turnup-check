@@ -1,0 +1,266 @@
+{
+ "_source": "DMTF Redfish-Publications tag 2026.2 (DSP2043 2026.2), commit 4f81814e399213c9055863ddaff42791c6b3706a, mockups/public-rackmount1; BSD-3-Clause, see LICENSE",
+ "/redfish/v1/": {
+  "Id": "RootService",
+  "Name": "Root Service",
+  "RedfishVersion": "1.15.0",
+  "Systems": {
+   "@odata.id": "/redfish/v1/Systems"
+  },
+  "Chassis": {
+   "@odata.id": "/redfish/v1/Chassis"
+  },
+  "Managers": {
+   "@odata.id": "/redfish/v1/Managers"
+  },
+  "UpdateService": {
+   "@odata.id": "/redfish/v1/UpdateService"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/"
+ },
+ "/redfish/v1/Chassis": {
+  "Name": "Chassis Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1U"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis"
+ },
+ "/redfish/v1/UpdateService": {
+  "Id": "UpdateService",
+  "Name": "Update service",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK",
+   "HealthRollup": "OK"
+  },
+  "FirmwareInventory": {
+   "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory"
+  },
+  "@odata.id": "/redfish/v1/UpdateService"
+ },
+ "/redfish/v1/Systems": {
+  "Name": "Computer System Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Systems/437XR1138R2"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Systems"
+ },
+ "/redfish/v1/Managers/BMC": {
+  "Id": "BMC",
+  "Name": "Manager",
+  "ManagerType": "BMC",
+  "Model": "Joo Janta 200",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "PowerState": "On",
+  "FirmwareVersion": "1.45.455b66-rev4",
+  "EthernetInterfaces": {
+   "@odata.id": "/redfish/v1/Managers/BMC/EthernetInterfaces"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/Managers/BMC"
+ },
+ "/redfish/v1/Systems/437XR1138R2": {
+  "Id": "437XR1138R2",
+  "Name": "WebFrontEnd483",
+  "SystemType": "Physical",
+  "Manufacturer": "Contoso",
+  "Model": "3500",
+  "SerialNumber": "437XR1138R2",
+  "HostName": "web483",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK",
+   "HealthRollup": "Warning",
+   "Conditions": [
+    {
+     "MessageId": "Sensor.1.0.ReadingAboveUpperCautionThreshold",
+     "Timestamp": "2024-08-12T12:25:00-05:00",
+     "Message": "Sensor 'CPU1 Temp' reading of 44 (Cel) is above the 42 upper caution threshold.",
+     "Severity": "Warning",
+     "MessageArgs": [
+      "CPU1 Temp",
+      "44",
+      "Cel",
+      "42"
+     ],
+     "OriginOfCondition": {
+      "@odata.id": "/redfish/v1/Chassis/1U/Sensors/CPU1Temp"
+     }
+    }
+   ]
+  },
+  "PowerState": "On",
+  "BiosVersion": "P79 v1.45 (12/06/2017)",
+  "ProcessorSummary": {
+   "Count": 2
+  },
+  "EthernetInterfaces": {
+   "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2"
+ },
+ "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces": {
+  "Name": "Ethernet Interface Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/12446A3B0411"
+   },
+   {
+    "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/12446A3B8890"
+   },
+   {
+    "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/VLAN1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/ToManager"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces"
+ },
+ "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/VLAN1": {
+  "Id": "VLAN1",
+  "Name": "Ethernet Interface",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "LinkStatus": "LinkUp",
+  "PermanentMACAddress": "12:44:6A:3B:04:11",
+  "MACAddress": "12:44:6A:3B:04:11",
+  "SpeedMbps": 1000,
+  "HostName": "web483",
+  "Links": {},
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/VLAN1"
+ },
+ "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/12446A3B8890": {
+  "Id": "12446A3B8890",
+  "Name": "Ethernet Interface",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "LinkStatus": "LinkUp",
+  "PermanentMACAddress": "12:44:6A:3B:88:90",
+  "MACAddress": "AA:BB:CC:DD:EE:00",
+  "SpeedMbps": 1000,
+  "HostName": "backup-web483",
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/12446A3B8890"
+ },
+ "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/12446A3B0411": {
+  "Id": "12446A3B0411",
+  "Name": "Ethernet Interface",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "LinkStatus": "LinkUp",
+  "PermanentMACAddress": "12:44:6A:3B:04:11",
+  "MACAddress": "12:44:6A:3B:04:11",
+  "SpeedMbps": 1000,
+  "HostName": "web483",
+  "Links": {},
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/12446A3B0411"
+ },
+ "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/ToManager": {
+  "Id": "ToManager",
+  "Name": "Host Ethernet Interface",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "PermanentMACAddress": "AA:BB:CC:DD:EE:FE",
+  "MACAddress": "AA:BB:CC:DD:EE:FE",
+  "SpeedMbps": 100,
+  "Links": {},
+  "@odata.id": "/redfish/v1/Systems/437XR1138R2/EthernetInterfaces/ToManager"
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory": {
+  "Name": "Firmware Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/SS"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BIOS"
+   }
+  ],
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory"
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/SS": {
+  "Id": "SS",
+  "Name": "Contoso Simple Storage Firmware",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Updateable": true,
+  "Manufacturer": "Contoso",
+  "Version": "2.50",
+  "Links": {},
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/SS"
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/BMC": {
+  "Id": "BMC",
+  "Name": "Contoso BMC Firmware",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Updateable": true,
+  "Manufacturer": "Contoso",
+  "Version": "1.45.455b66-rev4",
+  "Links": {},
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC"
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/BIOS": {
+  "Id": "BIOS",
+  "Name": "Contoso BIOS Firmware",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Updateable": true,
+  "Manufacturer": "Contoso",
+  "Version": "P79 v1.45",
+  "Links": {},
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BIOS"
+ },
+ "/redfish/v1/Chassis/1U": {
+  "Id": "1U",
+  "Name": "Computer System Chassis",
+  "Manufacturer": "Contoso",
+  "Model": "3500RX",
+  "SerialNumber": "437XR1138R2",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/1U"
+ }
+}

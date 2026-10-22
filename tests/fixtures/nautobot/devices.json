@@ -1,0 +1,71 @@
+{
+ "count": 2,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": "d-1",
+   "name": "node7",
+   "role": {
+    "id": "r-1",
+    "name": "GPU Node"
+   },
+   "device_type": {
+    "id": "dt-1",
+    "model": "GB300 NVL72 compute tray",
+    "manufacturer": {
+     "id": "m-1",
+     "name": "NVIDIA"
+    }
+   },
+   "location": {
+    "id": "loc-1",
+    "name": "Hall B"
+   },
+   "rack": {
+    "id": "rk-12",
+    "name": "12"
+   },
+   "position": 14,
+   "serial": "SN-NODE7",
+   "primary_ip4": {
+    "id": "ip-1",
+    "address": "10.0.0.7/24"
+   },
+   "custom_fields": {},
+   "config_context": {}
+  },
+  {
+   "id": "d-4",
+   "name": "leaf4",
+   "role": {
+    "id": "r-1",
+    "name": "Leaf Switch"
+   },
+   "device_type": {
+    "id": "dt-1",
+    "model": "SN5600",
+    "manufacturer": {
+     "id": "m-1",
+     "name": "NVIDIA"
+    }
+   },
+   "location": {
+    "id": "loc-1",
+    "name": "Hall B"
+   },
+   "rack": {
+    "id": "rk-12",
+    "name": "12"
+   },
+   "position": 14,
+   "serial": "SN-LEAF4",
+   "primary_ip4": {
+    "id": "ip-1",
+    "address": "10.0.1.4/24"
+   },
+   "custom_fields": {},
+   "config_context": {}
+  }
+ ]
+}

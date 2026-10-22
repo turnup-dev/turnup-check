@@ -1,0 +1,55 @@
+{
+ "schema": "turnup.report/v1",
+ "tool": "turnup-check",
+ "tool_version": "0.1.0",
+ "site": "dm-buffalo",
+ "simulated": false,
+ "generated_at": "2026-10-16T20:40:08Z",
+ "elapsed_s": 0.004,
+ "intent": {
+  "links": 3,
+  "nodes": 0,
+  "leaves": 1,
+  "racks": 1,
+  "source": "netbox"
+ },
+ "summary": {
+  "links_ok": 0,
+  "links_total": 3,
+  "nodes_reachable": 0,
+  "nodes_total": 0,
+  "firmware_ok": true,
+  "gpus_expected": 0,
+  "gpus_seen": 0,
+  "findings": 1
+ },
+ "findings": [
+  {
+   "id": "f-0001",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "dmi01-buffalo-sw01",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 3 links not verified",
+   "fix": "check switch management reachability and credentials for dmi01-buffalo-sw01",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 3
+   }
+  }
+ ],
+ "sources": [
+  {
+   "kind": "lldp",
+   "protocol": "snmp",
+   "devices": 1
+  }
+ ],
+ "notes": [
+  "3 links not verified (switch unreachable or not in intent)"
+ ]
+}

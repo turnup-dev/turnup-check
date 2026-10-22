@@ -1,0 +1,199 @@
+{
+ "_source": "DMTF Redfish-Publications tag 2026.2 (DSP2043 2026.2), commit 4f81814e399213c9055863ddaff42791c6b3706a, mockups/public-bladed; BSD-3-Clause, see LICENSE",
+ "/redfish/v1/": {
+  "Id": "RootService",
+  "Name": "Root Service",
+  "RedfishVersion": "1.15.0",
+  "Systems": {
+   "@odata.id": "/redfish/v1/Systems"
+  },
+  "Chassis": {
+   "@odata.id": "/redfish/v1/Chassis"
+  },
+  "Managers": {
+   "@odata.id": "/redfish/v1/Managers"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/"
+ },
+ "/redfish/v1/Chassis": {
+  "Name": "Chassis Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/MultiBladeEncl"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/Blade1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/Blade2"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/Blade3"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/Blade4"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Chassis"
+ },
+ "/redfish/v1/Systems": {
+  "Name": "Computer System Collection",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Systems/529QB9450R6"
+   },
+   {
+    "@odata.id": "/redfish/v1/Systems/529QB9451R6"
+   },
+   {
+    "@odata.id": "/redfish/v1/Systems/529QB9452R6"
+   },
+   {
+    "@odata.id": "/redfish/v1/Systems/529QB9453R6"
+   }
+  ],
+  "@odata.id": "/redfish/v1/Systems"
+ },
+ "/redfish/v1/Managers/Blade1BMC": {
+  "Id": "Blade1BMC",
+  "Name": "Blade Manager",
+  "ManagerType": "BMC",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "FirmwareVersion": "1.00",
+  "EthernetInterfaces": {
+   "@odata.id": "/redfish/v1/Managers/Blade1BMC/EthernetInterfaces"
+  },
+  "Links": {},
+  "@odata.id": "/redfish/v1/Managers/Blade1BMC"
+ },
+ "/redfish/v1/Systems/529QB9450R6": {
+  "Id": "529QB9450R6",
+  "Name": "Bladed System",
+  "SystemType": "Physical",
+  "Manufacturer": "Contoso",
+  "Model": "SX1000",
+  "SerialNumber": "529QB9450R6",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK",
+   "HealthRollup": "OK"
+  },
+  "PowerState": "On",
+  "BiosVersion": "P86 v1.58 (10/15/2015)",
+  "ProcessorSummary": {
+   "Count": 1
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/Blade1BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Systems/529QB9450R6"
+ },
+ "/redfish/v1/Chassis/Blade4": {
+  "Id": "Blade4",
+  "Name": "Blade",
+  "Manufacturer": "Contoso",
+  "Model": "SX1000",
+  "SerialNumber": "529QB9453R6",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/Blade4BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/Blade4"
+ },
+ "/redfish/v1/Chassis/Blade1": {
+  "Id": "Blade1",
+  "Name": "Blade",
+  "Manufacturer": "Contoso",
+  "Model": "SX1000",
+  "SerialNumber": "529QB9450R6",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/Blade1BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/Blade1"
+ },
+ "/redfish/v1/Chassis/Blade3": {
+  "Id": "Blade3",
+  "Name": "Blade",
+  "Manufacturer": "Contoso",
+  "Model": "SX1000",
+  "SerialNumber": "529QB9452R6",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/Blade3BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/Blade3"
+ },
+ "/redfish/v1/Chassis/Blade2": {
+  "Id": "Blade2",
+  "Name": "Blade",
+  "Manufacturer": "Contoso",
+  "Model": "SX1000",
+  "SerialNumber": "529QB9451R6",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/Blade2BMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/Blade2"
+ },
+ "/redfish/v1/Chassis/MultiBladeEncl": {
+  "Id": "MultiBladeEncl",
+  "Name": "Quad Blade Enclosure",
+  "Manufacturer": "Contoso",
+  "Model": "QB6000",
+  "SerialNumber": "528QB1654R1",
+  "PowerState": "On",
+  "Status": {
+   "State": "Enabled",
+   "Health": "OK"
+  },
+  "Links": {
+   "ManagedBy": [
+    {
+     "@odata.id": "/redfish/v1/Managers/MultiBladeBMC"
+    }
+   ]
+  },
+  "@odata.id": "/redfish/v1/Chassis/MultiBladeEncl"
+ }
+}

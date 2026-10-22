@@ -1,0 +1,123 @@
+{
+ "schema": "turnup.report/v1",
+ "tool": "turnup-check",
+ "tool_version": "0.1.0",
+ "site": "ASH01",
+ "simulated": false,
+ "generated_at": "2026-10-16T21:11:55Z",
+ "elapsed_s": 0.056,
+ "intent": {
+  "links": 52,
+  "nodes": 0,
+  "leaves": 3,
+  "racks": 11,
+  "source": "nautobot"
+ },
+ "summary": {
+  "links_ok": 0,
+  "links_total": 52,
+  "nodes_reachable": 0,
+  "nodes_total": 0,
+  "firmware_ok": true,
+  "gpus_expected": 0,
+  "gpus_seen": 0,
+  "findings": 5
+ },
+ "findings": [
+  {
+   "id": "f-0001",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "ash01-leaf-01.infra.ntc.com",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 27 links not verified",
+   "fix": "check switch management reachability and credentials for ash01-leaf-01.infra.ntc.com",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 27
+   }
+  },
+  {
+   "id": "f-0002",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "ash01-leaf-02.infra.ntc.com",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 25 links not verified",
+   "fix": "check switch management reachability and credentials for ash01-leaf-02.infra.ntc.com",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 25
+   }
+  },
+  {
+   "id": "f-0003",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "ash01-spine-01.infra.ntc.com",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 2 links not verified",
+   "fix": "check switch management reachability and credentials for ash01-spine-01.infra.ntc.com",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 2
+   }
+  },
+  {
+   "id": "f-0004",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "ash01-spine-02.infra.ntc.com",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 2 links not verified",
+   "fix": "check switch management reachability and credentials for ash01-spine-02.infra.ntc.com",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 2
+   }
+  },
+  {
+   "id": "f-0005",
+   "class": "unreachable_node",
+   "severity": "high",
+   "cable": null,
+   "device": "test-dev-01",
+   "interface": null,
+   "expected": "lldp table readable",
+   "observed": "no switch_url in intent",
+   "diagnosis": "lldp unreachable (snmp): no switch_url in intent; 0 links not verified",
+   "fix": "check switch management reachability and credentials for test-dev-01",
+   "evidence": {
+    "protocol": "snmp",
+    "error": "no switch_url in intent",
+    "links_unverified": 0
+   }
+  }
+ ],
+ "sources": [
+  {
+   "kind": "lldp",
+   "protocol": "snmp",
+   "devices": 5
+  }
+ ],
+ "notes": [
+  "52 links not verified (switch unreachable or not in intent)"
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "count": 5,
+ "next": null,
+ "previous": "http://netbox.example.test/api/dcim/devices/?site=hall-b&limit=1000",
+ "results": [
+  {
+   "id": 4,
+   "url": "http://netbox.example.test/api/dcim/devices/4/",
+   "name": "leaf4",
+   "device_type": {
+    "id": 1,
+    "model": "SN5600",
+    "manufacturer": {
+     "id": 1,
+     "name": "NVIDIA",
+     "slug": "nvidia"
+    }
+   },
+   "serial": "SN-LEAF4",
+   "site": {
+    "id": 1,
+    "name": "Hall B",
+    "slug": "hall-b"
+   },
+   "rack": {
+    "id": 12,
+    "name": "12",
+    "display": "12"
+   },
+   "position": 40.0,
+   "primary_ip4": {
+    "id": 4,
+    "address": "10.0.1.4/24",
+    "family": {
+     "value": 4
+    }
+   },
+   "custom_fields": {
+    "turnup_switch_url": "http://127.0.0.1:8900/dev/leaf4"
+   },
+   "config_context": {},
+   "role": {
+    "id": 2,
+    "name": "Leaf Switch",
+    "slug": "leaf-switch"
+   }
+  },
+  {
+   "id": 5,
+   "url": "http://netbox.example.test/api/dcim/devices/5/",
+   "name": "pdu1",
+   "device_type": {
+    "id": 1,
+    "model": "PX3",
+    "manufacturer": {
+     "id": 1,
+     "name": "Raritan",
+     "slug": "raritan"
+    }
+   },
+   "serial": "SN-PDU1",
+   "site": {
+    "id": 1,
+    "name": "Hall B",
+    "slug": "hall-b"
+   },
+   "rack": {
+    "id": 12,
+    "name": "12",
+    "display": "12"
+   },
+   "position": 40.0,
+   "primary_ip4": {
+    "id": 5,
+    "address": "10.0.2.1/24",
+    "family": {
+     "value": 4
+    }
+   },
+   "custom_fields": {},
+   "config_context": {},
+   "role": {
+    "id": 2,
+    "name": "Pdu",
+    "slug": "pdu"
+   }
+  }
+ ]
+}

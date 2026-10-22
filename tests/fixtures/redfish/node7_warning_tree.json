@@ -1,0 +1,249 @@
+{
+ "/redfish/v1/": {
+  "@odata.id": "/redfish/v1/",
+  "RedfishVersion": "1.17.0",
+  "Id": "RootService",
+  "Systems": {
+   "@odata.id": "/redfish/v1/Systems"
+  },
+  "Chassis": {
+   "@odata.id": "/redfish/v1/Chassis"
+  },
+  "Managers": {
+   "@odata.id": "/redfish/v1/Managers"
+  },
+  "UpdateService": {
+   "@odata.id": "/redfish/v1/UpdateService"
+  }
+ },
+ "/redfish/v1/Systems": {
+  "@odata.id": "/redfish/v1/Systems",
+  "Members@odata.count": 1,
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+   }
+  ]
+ },
+ "/redfish/v1/Systems/System.Embedded.1": {
+  "@odata.id": "/redfish/v1/Systems/System.Embedded.1",
+  "Id": "System.Embedded.1",
+  "HostName": "node7",
+  "Manufacturer": "NVIDIA",
+  "Model": "GB300 NVL72 compute tray",
+  "SerialNumber": "SN-N7-000123",
+  "BiosVersion": "2.3.1",
+  "PowerState": "On",
+  "Status": {
+   "Health": "Warning",
+   "State": "Enabled"
+  },
+  "ProcessorSummary": {
+   "Count": 2
+  }
+ },
+ "/redfish/v1/Managers": {
+  "@odata.id": "/redfish/v1/Managers",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Managers/BMC"
+   }
+  ]
+ },
+ "/redfish/v1/Managers/BMC": {
+  "@odata.id": "/redfish/v1/Managers/BMC",
+  "Id": "BMC",
+  "FirmwareVersion": "1.12.0",
+  "Status": {
+   "Health": "OK",
+   "State": "Enabled"
+  }
+ },
+ "/redfish/v1/UpdateService": {
+  "@odata.id": "/redfish/v1/UpdateService",
+  "FirmwareInventory": {
+   "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory"
+  }
+ },
+ "/redfish/v1/Chassis": {
+  "@odata.id": "/redfish/v1/Chassis",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1"
+   }
+  ]
+ },
+ "/redfish/v1/Chassis/1": {
+  "@odata.id": "/redfish/v1/Chassis/1",
+  "Id": "1",
+  "NetworkAdapters": {
+   "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters"
+  }
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1"
+   }
+  ]
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1",
+  "Id": "NIC.1",
+  "Model": "ConnectX-8",
+  "Ports": {
+   "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports"
+  }
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_0"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_1"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_2"
+   },
+   {
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_3"
+   }
+  ]
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_0": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_0",
+  "Id": "mlx5_0",
+  "Name": "mlx5_0",
+  "LinkStatus": "LinkUp",
+  "CurrentSpeedGbps": 400,
+  "Ethernet": {
+   "AssociatedMACAddresses": [
+    "b8:3f:d2:00:07:00"
+   ],
+   "LLDPReceive": {
+    "ChassisId": "aa:00:00:00:00:04",
+    "PortId": "swp21",
+    "SystemName": "leaf4"
+   }
+  }
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_1": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_1",
+  "Id": "mlx5_1",
+  "Name": "mlx5_1",
+  "LinkStatus": "LinkUp",
+  "CurrentSpeedGbps": 400,
+  "Ethernet": {
+   "AssociatedMACAddresses": [
+    "b8:3f:d2:00:07:01"
+   ],
+   "LLDPReceive": {
+    "ChassisId": "aa:00:00:00:00:04",
+    "PortId": "swp22",
+    "SystemName": "leaf4"
+   }
+  }
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_2": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_2",
+  "Id": "mlx5_2",
+  "Name": "mlx5_2",
+  "LinkStatus": "LinkUp",
+  "CurrentSpeedGbps": 400,
+  "Ethernet": {
+   "AssociatedMACAddresses": [
+    "b8:3f:d2:00:07:02"
+   ],
+   "LLDPReceive": {
+    "ChassisId": "aa:00:00:00:00:04",
+    "PortId": "swp23",
+    "SystemName": "leaf4"
+   }
+  }
+ },
+ "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_3": {
+  "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/NIC.1/Ports/mlx5_3",
+  "Id": "mlx5_3",
+  "Name": "mlx5_3",
+  "LinkStatus": "LinkUp",
+  "CurrentSpeedGbps": 400,
+  "Ethernet": {
+   "AssociatedMACAddresses": [
+    "b8:3f:d2:00:07:03"
+   ],
+   "LLDPReceive": {
+    "ChassisId": "aa:00:00:00:00:04",
+    "PortId": "swp24",
+    "SystemName": "leaf4"
+   }
+  }
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory",
+  "Members": [
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Previous-BIOS"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BIOS"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NIC.1"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/GPU.0"
+   },
+   {
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Thermal.1"
+   }
+  ]
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/BMC": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC",
+  "Id": "BMC",
+  "Name": "BMC Firmware",
+  "Version": "1.12.0",
+  "Updateable": true
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/Previous-BIOS": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Previous-BIOS",
+  "Id": "Previous-BIOS",
+  "Name": "System BIOS",
+  "Version": "2.2.0",
+  "Updateable": true
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/BIOS": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BIOS",
+  "Id": "BIOS",
+  "Name": "System BIOS",
+  "Version": "2.3.1",
+  "Updateable": true
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/NIC.1": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NIC.1",
+  "Id": "NIC.1",
+  "Name": "ConnectX-8 Network Adapter",
+  "Version": "28.42.1000",
+  "Updateable": true
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/GPU.0": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/GPU.0",
+  "Id": "GPU.0",
+  "Name": "NVIDIA GPU VBIOS",
+  "Version": "97.00.5E.00.01",
+  "Updateable": true
+ },
+ "/redfish/v1/UpdateService/FirmwareInventory/Thermal.1": {
+  "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Thermal.1",
+  "Id": "Thermal.1",
+  "Name": "Fan Controller",
+  "Version": "0.9",
+  "Updateable": true
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "count": 1,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": "c-1",
+   "label": "CBL-12-07-03",
+   "termination_a_type": "dcim.interface",
+   "termination_a": {
+    "id": "i-1",
+    "name": "mlx5_3",
+    "device": {
+     "id": "d-1",
+     "name": "node7"
+    }
+   },
+   "termination_b_type": "dcim.interface",
+   "termination_b": {
+    "id": "i-2",
+    "name": "swp21",
+    "device": {
+     "id": "d-4",
+     "name": "leaf4"
+    }
+   }
+  }
+ ]
+}

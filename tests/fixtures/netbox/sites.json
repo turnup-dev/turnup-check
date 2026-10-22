@@ -1,0 +1,15 @@
+{
+ "count": 1,
+ "next": null,
+ "previous": null,
+ "results": [
+  {
+   "id": 1,
+   "name": "Hall B",
+   "slug": "hall-b",
+   "description": "Simulated by simhall",
+   "comments": "",
+   "custom_fields": {}
+  }
+ ]
+}

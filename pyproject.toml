@@ -1,0 +1,83 @@
+# SPDX-License-Identifier: Apache-2.0
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turnup-check"
+version = "0.1.0"
+description = "Diff the intended GPU-hall build (NetBox/Nautobot) against what LLDP, Redfish and DCGM actually see."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+authors = [{ name = "Turnup contributors" }]
+keywords = ["netbox", "nautobot", "redfish", "lldp", "dcgm", "gpu", "datacenter", "bring-up"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: System Administrators",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: System :: Networking :: Monitoring",
+  "Topic :: System :: Hardware",
+]
+dependencies = [
+  "httpx>=0.27",
+  "pydantic>=2.5",
+  "pyyaml>=6.0",
+  "click>=8.1",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+snmp = ["pysnmp>=7.1"]
+netbox = ["pynetbox>=7.0"]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "pytest-timeout>=2.3",
+  "hypothesis>=6.100",
+  "ruff>=0.6",
+]
+
+[project.scripts]
+turnup-check = "turnup_check.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/turnup-dev/turnup-check"
+Repository = "https://github.com/turnup-dev/turnup-check"
+Changelog = "https://github.com/turnup-dev/turnup-check/blob/main/CHANGELOG.md"
+Issues = "https://github.com/turnup-dev/turnup-check/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+turnup_check = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+timeout = 60
+markers = [
+  "integration: needs simhall importable; skipped cleanly otherwise",
+  "slow: long-running integration tier (property, scale)",
+]
+filterwarnings = ["error::DeprecationWarning:turnup_check.*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 110
+extend-exclude = ["netbox_plugin/netbox_turnup_check/templates"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "N", "SIM", "RUF"]
+ignore = ["RUF012", "SIM108", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["N802", "N806", "RUF001", "RUF003"]
+"netbox_plugin/**" = ["N999"]

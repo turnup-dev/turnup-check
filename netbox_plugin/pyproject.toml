@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: Apache-2.0
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netbox-turnup-check"
+version = "0.1.0"
+description = "NetBox plugin: a Turnup check menu item listing turnup-check reports."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "Turnup contributors" }]
+# NetBox provides Django; the plugin declares no dependency on it so pip never pulls a second Django.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/turnup-dev/turnup-check"
+
+[tool.setuptools.packages.find]
+include = ["netbox_turnup_check*"]
+
+[tool.setuptools.package-data]
+netbox_turnup_check = ["templates/netbox_turnup_check/*.html"]
