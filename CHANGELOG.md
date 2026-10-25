@@ -4,7 +4,7 @@ All notable changes to turnup-check. The format follows Keep a Changelog; versio
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-11-10
+## [0.1.0] - 2026-10-25
 
 First public release (v0). Everything below is written against public specifications and tested against the
 `simhall` virtual hall; no real hall has run it yet.

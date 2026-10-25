@@ -25,8 +25,8 @@ JSON report. Nothing else: no agent, no database, no account.
 ## Install
 
 ```bash
-pip install git+https://github.com/turnup-dev/turnup-check          # Python 3.12+; v0.1.0 reaches PyPI on November 10, 2026
-pip install "turnup-check[snmp] @ git+https://github.com/turnup-dev/turnup-check"   # adds pysnmp for switches without eAPI/NVUE
+pip install turnup-check            # Python 3.12+
+pip install "turnup-check[snmp]"    # adds pysnmp for switches without eAPI/NVUE
 ```
 
 ## Five minutes on a NetBox site
@@ -49,7 +49,7 @@ management-endpoint custom fields and the firmware baseline are in [docs/intent.
 eAPI/NVUE and DCGM protocols with fault injection. Its golden scenario reproduces the output above:
 
 ```bash
-pip install git+https://github.com/turnup-dev/simhall
+pip install simhall
 simhall serve --golden hall-b &                                      # 127.0.0.1:8900, any token
 turnup-check --site hall-b --intent http://127.0.0.1:8900/netbox    # exits 1: one wrong_port
 simhall act '{"kind":"seat_cable","label":"CBL-12-07-03","b_interface":"swp21"}'
