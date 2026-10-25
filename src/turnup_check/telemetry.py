@@ -18,7 +18,7 @@ import httpx
 from turnup_check import PING_SCHEMA, __version__
 from turnup_check.models import Intent, Report, iso_z, utcnow
 
-# CONTRACT section 5: the public counter lives at counter.legent.xyz (TURNUP_COUNTER_URL overrides it).
+# CONTRACT section 5: the counter lives at counter.legent.xyz (TURNUP_COUNTER_URL overrides it).
 DEFAULT_COUNTER_URL = "https://counter.legent.xyz/v1/ping"
 SEND_TIMEOUT = 2.0
 

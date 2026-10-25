@@ -11,7 +11,7 @@ polling             lldp · redfish · dcgm
 fix          move cable one port up
 elapsed      4.1 s
 
-report       hall-b-2026-10-16.json
+report       hall-b-<YYYY-MM-DD>.json
 share stats  --telemetry opt-in (racks, links)
 ```
 
@@ -100,7 +100,7 @@ unless asked for `depth`, so the adapter requests:
 | `dcim/cables` | `depth=1` | each end's interface name and device reference, resolved against the device list; `depth=2` took 80-177 s for 74-78 cables on the public demo and timed out the load |
 | `dcim/racks`, `dcim/locations` | `depth=1` | names |
 
-Verified against the public NetBox 4.7.3 and Nautobot 3.2.7 demos (2026-10-16); the captured pages are in
+Verified against the public NetBox 4.7.3 and Nautobot 3.2.7 demos; the captured pages are in
 `tests/fixtures/netbox_demo/` and `tests/fixtures/nautobot_demo/`.
 
 A URL works too: `--intent http://127.0.0.1:8900/netbox` treats it as a NetBox base URL (this is how the
@@ -195,7 +195,7 @@ human layout to stderr):
 ## Opt-in telemetry
 
 Nothing is sent unless you pass `--telemetry`. Then, after the report is written, one request goes to the
-public counter (`TURNUP_COUNTER_URL`, default `https://counter.legent.xyz/v1/ping`):
+counter (`TURNUP_COUNTER_URL`, default `https://counter.legent.xyz/v1/ping`):
 
 ```json
 {"schema": "turnup.ping/v1", "install_id": "<uuid4 from ~/.config/turnup/install_id>", "tool_version": "0.1.0",
@@ -203,8 +203,9 @@ public counter (`TURNUP_COUNTER_URL`, default `https://counter.legent.xyz/v1/pin
 ```
 
 That is the whole payload: no site names, device names, IPs or findings, ever. Sending has a 2 s timeout,
-never raises and never changes the exit code. Runs against a simulated hall carry `simulated: true` and do not
-count toward the public numbers.
+never raises and never changes the exit code. Runs against a simulated hall carry `simulated: true` and are never
+counted. The counter publishes its numbers at the first update, once three operators have run the check on
+real halls.
 
 ## Try it on the virtual hall
 
