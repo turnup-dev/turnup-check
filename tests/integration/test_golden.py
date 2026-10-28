@@ -59,42 +59,59 @@ def test_golden_hall_b_over_netbox_adapter(golden: SimServer, runner_env, tmp_pa
     out = res.stdout
     assert res.returncode == 1, (out, res.stderr, golden.log())
     lines = out.splitlines()
-    # The README output, line for line: the check marks the summary lines, the cross marks the mismatch block.
+    # The README output, line for line: the check marks the summary lines, the cross marks each finding block.
+    # Five findings of four kinds, one node each, one fix sentence each (simhall's golden scenario).
     assert lines[0] == f"reading intent      288 links {DOT} 18 nodes {DOT} 2 leaves"
     assert lines[1] == f"polling             lldp {DOT} redfish {DOT} dcgm"
-    assert lines[2] == f"{CHECK} 287 / 288 links match intent"
-    assert lines[3] == f"{CHECK} 18 / 18 nodes reachable, firmware baseline ok"
+    assert lines[2] == f"{CHECK} 286 / 288 links match intent"
+    assert lines[3] == f"{CHECK} 17 / 18 nodes reachable, firmware off baseline"
     assert lines[4] == f"{CROSS} mismatch   node7 mlx5_3 {ARROW} leaf4/22"
     assert lines[5] == "             expected leaf4/21"
     assert lines[6] == "fix          move cable one port up"
-    assert lines[7].startswith("elapsed      ") and lines[7].endswith(" s")
-    assert lines[8] == ""
-    assert lines[9].startswith("report       hall-b-") and lines[9].endswith(".json")
-    assert lines[10] == "share stats  --telemetry opt-in (racks, links)"
-    assert len(lines) == 11
-    assert _elapsed(out) < 5.0
+    assert lines[7] == f"{CROSS} degraded   node11 mlx5_5 {ARROW} leaf4/83 200G"
+    assert lines[8] == "             expected leaf4/83 up 400G"
+    assert lines[9] == "fix          check transceivers and cable CBL-12-11-05 at leaf4/83 (200G negotiated, intent 400G)"
+    assert lines[10] == f"{CROSS} firmware   node4 bmc 1.09.2"
+    assert lines[11] == "             expected 1.12.0"
+    assert lines[12] == "fix          update bmc on node4 to 1.12.0"
+    assert lines[13] == f"{CROSS} gpu        node14 gpu2 XID 79"
+    assert lines[14] == "             expected healthy"
+    assert lines[15] == "fix          drain node14 and open an RMA packet for GPU 2"
+    assert lines[16] == f"{CROSS} offline    node17 redfish unreachable: timeout after 3 s"
+    assert lines[17] == "fix          check BMC reachability and credentials for node17"
+    assert lines[18].startswith("elapsed      ") and lines[18].endswith(" s")
+    assert lines[19] == ""
+    assert lines[20].startswith("report       hall-b-") and lines[20].endswith(".json")
+    assert lines[21] == "share stats  --telemetry opt-in (racks, links)"
+    assert len(lines) == 22
+    assert _elapsed(out) < 6.0  # node17's BMC costs one 3 s timeout
 
-    report_path = tmp_path / lines[9].split()[-1]
+    report_path = tmp_path / lines[20].split()[-1]
     doc = json.loads(report_path.read_text())
     assert set(doc) == REPORT_KEYS
     assert doc["schema"] == "turnup.report/v1" and doc["tool"] == "turnup-check"
     assert re.match(r"^\d+\.\d+\.\d+", doc["tool_version"])
     assert doc["site"] == "hall-b" and doc["simulated"] is True  # inferred from the NetBox site description
     assert re.match(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$", doc["generated_at"])
-    assert 0 < doc["elapsed_s"] < 5.0
+    assert 0 < doc["elapsed_s"] < 6.0
     assert doc["intent"] == {"links": 288, "nodes": 18, "leaves": 2, "racks": 1, "source": "netbox"}
     assert doc["summary"] == {
-        "links_ok": 287,
+        "links_ok": 286,
         "links_total": 288,
-        "nodes_reachable": 18,
+        "nodes_reachable": 17,
         "nodes_total": 18,
-        "firmware_ok": True,
+        "firmware_ok": False,
         "gpus_expected": 72,
-        "gpus_seen": 72,
-        "findings": 1,
+        "gpus_seen": 68,  # node17's exporter is unreachable too: its four GPUs are unknown, not missing
+        "findings": 5,
     }
-    (finding,) = doc["findings"]
-    assert set(finding) == FINDING_KEYS
+    assert [f["class"] for f in doc["findings"]] == [
+        "wrong_port", "link_degraded", "firmware_off_baseline", "gpu_unhealthy", "unreachable_node"
+    ]
+    assert [f["device"] for f in doc["findings"]] == ["node7", "node11", "node4", "node14", "node17"]
+    assert [f["severity"] for f in doc["findings"]] == ["high", "medium", "medium", "high", "high"]
+    assert all(set(f) == FINDING_KEYS for f in doc["findings"])
+    finding = doc["findings"][0]
     assert finding["id"] == "f-0001" and finding["class"] == "wrong_port" and finding["severity"] == "high"
     assert (
         finding["cable"] == GOLDEN_LABEL and finding["device"] == "node7" and finding["interface"] == "mlx5_3"
@@ -111,10 +128,10 @@ def test_golden_hall_b_over_netbox_adapter(golden: SimServer, runner_env, tmp_pa
         {"kind": "redfish", "devices": 18},
         {"kind": "dcgm", "devices": 18},
     ]
-    assert doc["notes"] == []
+    assert doc["notes"] == ["node17: dcgm unreachable (timeout after 3 s); gpu: unknown"]
 
 
-def test_seating_the_cable_makes_the_run_green(golden: SimServer, runner_env, tmp_path: Path):
+def test_seating_the_cable_closes_the_mismatch_and_leaves_four(golden: SimServer, runner_env, tmp_path: Path):
     golden.act(
         "seat_cable",
         label=GOLDEN_LABEL,
@@ -124,17 +141,45 @@ def test_seating_the_cable_makes_the_run_green(golden: SimServer, runner_env, tm
         b_interface="swp21",
     )
     res = run_cli(["--site", "hall-b", "--intent", golden.netbox_url], runner_env, tmp_path)
-    assert res.returncode == 0, (res.stdout, res.stderr, golden.log())
+    assert res.returncode == 1, (res.stdout, res.stderr, golden.log())
     lines = res.stdout.splitlines()
-    assert lines[2] == f"{CHECK} 288 / 288 links match intent"
-    assert lines[3] == f"{CHECK} 18 / 18 nodes reachable, firmware baseline ok"
-    assert lines[4].startswith("elapsed      ")
-    assert "fix" not in res.stdout and CROSS not in res.stdout
+    assert lines[2] == f"{CHECK} 287 / 288 links match intent"
+    assert lines[3] == f"{CHECK} 17 / 18 nodes reachable, firmware off baseline"
+    assert "mismatch" not in res.stdout and res.stdout.count(CROSS) == 4
 
 
-def test_clearing_the_fault_makes_the_run_green(golden: SimServer, runner_env, tmp_path: Path):
+def test_the_floor_actions_leave_the_two_node_findings_open(golden: SimServer, runner_env, tmp_path: Path):
+    """The demo's closing re-run: cable moved, degraded cable reseated, firmware updated; the GPU with the
+    XID and the BMC that does not answer stay open, so the exit code stays 1 (no clean board)."""
+    golden.act("seat_cable", label=GOLDEN_LABEL, b_interface="swp21")
+    golden.act("seat_cable", label="CBL-12-11-05")
+    golden.act("update_firmware", device="node4", component="bmc", version="1.12.0")
+    res = run_cli(["--site", "hall-b", "--intent", golden.netbox_url, "--json"], runner_env, tmp_path)
+    assert res.returncode == 1, (res.stdout, res.stderr, golden.log())
+    doc = json.loads(res.stdout)
+    assert doc["summary"] == {
+        "links_ok": 288,
+        "links_total": 288,
+        "nodes_reachable": 17,
+        "nodes_total": 18,
+        "firmware_ok": True,
+        "gpus_expected": 72,
+        "gpus_seen": 68,
+        "findings": 2,
+    }
+    assert [(f["class"], f["device"]) for f in doc["findings"]] == [
+        ("gpu_unhealthy", "node14"),
+        ("unreachable_node", "node17"),
+    ]
+    assert f"{CHECK} 288 / 288 links match intent" in res.stderr
+    assert f"{CHECK} 17 / 18 nodes reachable, firmware baseline ok" in res.stderr
+
+
+def test_clearing_the_faults_makes_the_run_green(golden: SimServer, runner_env, tmp_path: Path):
     faults = golden.faults()
-    assert [f["kind"] for f in faults] == ["wrong_port"], faults
+    assert [f["kind"] for f in faults] == [
+        "wrong_port", "link_degraded", "firmware_off_baseline", "gpu_unhealthy", "unreachable_node"
+    ], faults
     for f in faults:
         golden.clear(str(f.get("id")))
     res = run_cli(["--site", "hall-b", "--intent", golden.netbox_url, "--json"], runner_env, tmp_path)
@@ -163,7 +208,7 @@ def test_same_result_from_the_intent_file(golden: SimServer, runner_env, tmp_pat
     assert "fix          move cable one port up" in res.stdout
     doc = json.loads((tmp_path / "r.json").read_text())
     assert doc["intent"]["source"] == "file" and doc["simulated"] is True
-    assert doc["summary"]["links_ok"] == 287
+    assert doc["summary"]["links_ok"] == 286 and doc["summary"]["findings"] == 5
 
 
 def test_telemetry_ping_from_the_golden_run(golden: SimServer, runner_env, tmp_path: Path):
@@ -173,7 +218,7 @@ def test_telemetry_ping_from_the_golden_run(golden: SimServer, runner_env, tmp_p
         env = dict(runner_env, TURNUP_COUNTER_URL=stub.url)
         res = run_cli(["--site", "hall-b", "--intent", golden.netbox_url, "--telemetry"], env, tmp_path)
     assert res.returncode == 1, (res.stdout, res.stderr)
-    assert res.stdout.splitlines()[-1] == "share stats  sent (1 rack, 287 links)"
+    assert res.stdout.splitlines()[-1] == "share stats  sent (1 rack, 286 links)"
     ((path, headers, body),) = stub.received
     assert path == "/v1/ping" and headers["content-type"].startswith("application/json")
     assert set(body) == {
@@ -187,7 +232,7 @@ def test_telemetry_ping_from_the_golden_run(golden: SimServer, runner_env, tmp_p
         "ts",
     }
     assert body["schema"] == "turnup.ping/v1" and body["simulated"] is True
-    assert (body["racks_checked"], body["links_verified"], body["nodes_checked"]) == (1, 287, 18)
+    assert (body["racks_checked"], body["links_verified"], body["nodes_checked"]) == (1, 286, 18)
     assert uuid.UUID(body["install_id"]).version == 4
     assert body["install_id"] == (tmp_path / "cfg" / "install_id").read_text().strip()
     assert re.match(r"^[0-9A-Za-z][0-9A-Za-z.+-]{0,31}$", body["tool_version"])

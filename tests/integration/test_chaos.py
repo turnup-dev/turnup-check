@@ -52,14 +52,18 @@ def test_every_fault_mode_on_several_nodes_at_once(golden: SimServer, runner_env
     assert res.returncode == 1, (res.stdout, res.stderr, golden.log())
     doc = json.loads(out.read_text())
 
-    assert Counter(f["class"] for f in doc["findings"]) == {"unreachable_node": 6, "wrong_port": 1}
+    # The golden hall's own five faults sit underneath: node17 is a seventh unreachable node, node4's firmware
+    # fault is hidden behind its timeout (unknown, not a finding), the degraded link and the GPU stay visible.
+    assert Counter(f["class"] for f in doc["findings"]) == {
+        "unreachable_node": 7, "wrong_port": 1, "link_degraded": 1, "gpu_unhealthy": 1
+    }
     unreachable = {f["device"]: f["observed"] for f in doc["findings"] if f["class"] == "unreachable_node"}
-    assert set(unreachable) == {"node3", "node4", "node5", "node6", "node8", "node9"}
-    assert unreachable["node3"] == unreachable["node4"] == f"timeout after {TIMEOUT:g} s"
+    assert set(unreachable) == {"node3", "node4", "node5", "node6", "node8", "node9", "node17"}
+    assert unreachable["node3"] == unreachable["node4"] == unreachable["node17"] == f"timeout after {TIMEOUT:g} s"
     assert unreachable["node5"] == unreachable["node6"] == "HTTP 500"
     assert unreachable["node8"] == unreachable["node9"] == "HTTP 404"  # "refused" is 404 at the prefix in sim
-    assert doc["summary"]["nodes_reachable"] == 12 and doc["summary"]["nodes_total"] == 18
-    assert doc["summary"]["links_ok"] == 287 and doc["summary"]["links_total"] == 288
+    assert doc["summary"]["nodes_reachable"] == 11 and doc["summary"]["nodes_total"] == 18
+    assert doc["summary"]["links_ok"] == 286 and doc["summary"]["links_total"] == 288
     # Partial trees are unknown, never a firmware mismatch; exporters down are unknown, never a gpu finding.
     assert doc["summary"]["firmware_ok"] is True
     for node in ("node10", "node11"):
@@ -68,11 +72,11 @@ def test_every_fault_mode_on_several_nodes_at_once(golden: SimServer, runner_env
         assert any(
             n.startswith(f"{node}: dcgm unreachable") and n.endswith("gpu: unknown") for n in doc["notes"]
         )
-    assert doc["summary"]["gpus_expected"] == 72 and doc["summary"]["gpus_seen"] == 72 - 8 * 4
+    assert doc["summary"]["gpus_expected"] == 72 and doc["summary"]["gpus_seen"] == 72 - 9 * 4
     assert doc["elapsed_s"] <= 2 * TIMEOUT + 1.0, doc["elapsed_s"]
 
-    assert f"{CHECK} 287 / 288 links match intent" in res.stdout
-    assert f"{CHECK} 12 / 18 nodes reachable, firmware baseline ok" in res.stdout
+    assert f"{CHECK} 286 / 288 links match intent" in res.stdout
+    assert f"{CHECK} 11 / 18 nodes reachable, firmware baseline ok" in res.stdout
     assert f"{CROSS} offline    node3 redfish unreachable: timeout after {TIMEOUT:g} s" in res.stdout
     assert f"{CROSS} offline    node5 redfish unreachable: HTTP 500" in res.stdout
     assert f"{CROSS} mismatch   node7 mlx5_3" in res.stdout
@@ -103,11 +107,15 @@ def test_unreadable_switch_leaves_its_links_unverified(golden: SimServer, runner
     res = _check(golden, runner_env, tmp_path, out, timeout=0.5)
     assert res.returncode == 1, (res.stdout, res.stderr)
     doc = json.loads(out.read_text())
-    # The golden wrong_port lives on leaf4, whose table could not be read: unverified, not a wrong_port.
-    (finding,) = doc["findings"]
-    assert finding["class"] == "unreachable_node" and finding["device"] == "leaf4"
+    # The golden wrong_port and the degraded link both live on leaf4, whose table could not be read: unverified,
+    # neither a wrong_port nor a degraded link. The node faults (firmware, GPU, node17 offline) are unaffected.
+    assert Counter(f["class"] for f in doc["findings"]) == {
+        "unreachable_node": 2, "firmware_off_baseline": 1, "gpu_unhealthy": 1
+    }
+    finding = next(f for f in doc["findings"] if f["device"] == "leaf4")
+    assert finding["class"] == "unreachable_node"
     assert "144 links not verified" in finding["diagnosis"]
-    assert doc["summary"]["links_ok"] == 144 and doc["summary"]["nodes_reachable"] == 18
+    assert doc["summary"]["links_ok"] == 144 and doc["summary"]["nodes_reachable"] == 17
     assert any(n.startswith("144 links not verified") for n in doc["notes"]), doc["notes"]
     assert f"{CHECK} 144 / 288 links match intent" in res.stdout
     assert doc["elapsed_s"] <= 2 * 0.5 + 1.0

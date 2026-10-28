@@ -7,11 +7,22 @@ LLDP, Redfish and DCGM, and prints the diff. One command, seconds per rack, any 
 $ turnup-check --site hall-b --intent netbox
 reading intent      288 links · 18 nodes · 2 leaves
 polling             lldp · redfish · dcgm
-✓ 287 / 288 links match intent
-✓ 18 / 18 nodes reachable, firmware baseline ok
+✓ 286 / 288 links match intent
+✓ 17 / 18 nodes reachable, firmware off baseline
 ✗ mismatch   node7 mlx5_3 → leaf4/22
              expected leaf4/21
 fix          move cable one port up
+✗ degraded   node11 mlx5_5 → leaf4/83 200G
+             expected leaf4/83 up 400G
+fix          check transceivers and cable CBL-12-11-05 at leaf4/83 (200G negotiated, intent 400G)
+✗ firmware   node4 bmc 1.09.2
+             expected 1.12.0
+fix          update bmc on node4 to 1.12.0
+✗ gpu        node14 gpu2 XID 79
+             expected healthy
+fix          drain node14 and open an RMA packet for GPU 2
+✗ offline    node17 redfish unreachable: timeout after 3 s
+fix          check BMC reachability and credentials for node17
 elapsed      4.1 s
 
 report       hall-b-<YYYY-MM-DD>.json
@@ -46,14 +57,20 @@ management-endpoint custom fields and the firmware baseline are in [docs/intent.
 ## Try it without hardware
 
 [simhall](https://github.com/turnup-dev/simhall) is a virtual hall that serves the same NetBox, Redfish,
-eAPI/NVUE and DCGM protocols with fault injection. Its golden scenario reproduces the output above:
+eAPI/NVUE and DCGM protocols with fault injection. Its golden scenario `hall-b` is a hall handed over with
+every light green and five faults of four kinds underneath; it reproduces the output above:
 
 ```bash
 pip install simhall
 simhall serve --golden hall-b &                                      # 127.0.0.1:8900, any token
-turnup-check --site hall-b --intent http://127.0.0.1:8900/netbox    # exits 1: one wrong_port
-simhall act '{"kind":"seat_cable","label":"CBL-12-07-03","b_interface":"swp21"}'
-turnup-check --site hall-b --intent http://127.0.0.1:8900/netbox    # exits 0: 288 / 288
+turnup-check --site hall-b --intent http://127.0.0.1:8900/netbox    # exits 1: five findings
+simhall act '{"kind":"seat_cable","label":"CBL-12-07-03","b_interface":"swp21"}'      # the cable moved
+simhall act '{"kind":"seat_cable","label":"CBL-12-11-05"}'                             # degraded cable reseated
+simhall act '{"kind":"update_firmware","device":"node4","component":"bmc","version":"1.12.0"}'
+turnup-check --site hall-b --intent http://127.0.0.1:8900/netbox    # exits 1: 288 / 288, the GPU and node17 still open
+simhall act '{"kind":"replace_node","device":"node14","new_serial":"SN-R1"}'          # the RMA swap ...
+simhall act '{"kind":"replace_node","device":"node17","new_serial":"SN-R2"}'          # ... and the dead BMC's tray
+turnup-check --site hall-b --intent http://127.0.0.1:8900/netbox    # exits 0
 ```
 
 Simulated runs are marked `simulated: true` in the report and never count anywhere.
